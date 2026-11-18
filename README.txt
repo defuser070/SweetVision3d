@@ -1,41 +1,130 @@
-# SweetVision 3D — Enhanced UI
+# 🍬 SweetVision 3D
 
-## What's improved
-- Responsive pink/white/berry UI with animated cards and transitions.
-- Working Home → Analyze Food navigation using Streamlit callbacks.
-- First-visit dessert splash screen and animated sweet-themed loading panel during recognition.
-- Sweet emoji cursor selected randomly for each new app session.
-- Camera and image-upload tabs. Streamlit's camera input requests browser permission when the user captures a photo.
-- Result tabs for overview, visual studio, and nutrition explorer.
-- Interactive Plotly similarity chart, 3D-style surface, and nutrition composition chart.
-- Session history and CSV export.
-- Lazy PyTorch/Transformers imports so the dashboard can still open if the model runtime has an installation problem.
+### AI-Powered Indian Sweets Recognition & 3D Visualization
 
-## Run on Windows
-Open CMD in this project folder, then:
+**SweetVision 3D** is an AI-powered web application that identifies Indian sweets from uploaded images or camera input and generates interactive 3D visualizations. It combines computer vision, deep learning, and data visualization to make food recognition more interactive and informative.
 
-```cmd
-py -3.11 -m venv venv311
-venv311\\Scripts\\activate
-python -m pip install --upgrade pip
-python -m pip install -r requirements.txt
-python -m streamlit run app.py
+< p></p>
+## 🚀 Live Demo
+
+**[🌐 Try SweetVision 3D](https://sweetvision3d.streamlit.app/)**
+
+## ✨ Features
+
+- **AI-Based Sweet Recognition:** Identifies different Indian sweets using a CLIP-based image classification model.
+- **Image Upload:** Upload an image of a sweet for analysis.
+- **Camera Input:** Capture images directly using your device camera.
+- **3D Visualization:** Generates interactive 3D visualizations of detected sweets.
+- **Image Segmentation:** Uses OpenCV-based image processing to isolate the food region.
+- **Nutrition Estimation:** Provides indicative portion, mass, volume, and sugar estimates.
+- **Analysis History:** Keeps analysis results within the current session.
+- **CSV Export:** Export available analysis history for further use.
+- **Responsive Interface:** Designed to work across desktop and mobile devices.
+
+## 🛠️ Technologies Used
+
+| Technology | Purpose |
+|---|---|
+| Python | Core programming language |
+| Streamlit | Web application interface |
+| PyTorch | Deep learning framework |
+| Hugging Face Transformers | CLIP model integration |
+| OpenCV | Image processing and segmentation |
+| NumPy | Numerical operations |
+| Pandas | Data handling |
+| Plotly | Interactive 3D visualization |
+| Pillow | Image processing |
+
+## 🧠 How It Works
+
+1. Upload an image or capture a photo using the camera.
+2. The image is processed and prepared for AI analysis.
+3. The CLIP model compares the image against supported sweet categories.
+4. The application displays the predicted sweet and similarity score.
+5. OpenCV processes the image for approximate segmentation.
+6. Plotly generates an interactive 3D visualization.
+7. Indicative portion and nutrition estimates are displayed.
+
+## 📦 Installation & Setup
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/YOUR_USERNAME/SweetVision3D.git
 ```
 
-If you already have `venv311`, activate it instead of recreating it.
+### 2. Navigate to the project folder
 
-## First run
-The first recognition may download the `openai/clip-vit-base-patch32` model from Hugging Face. Keep the internet connection on. The model is cached for later runs.
+```bash
+cd SweetVision3D
+```
 
-## Camera permissions
-- Camera permission is requested by the browser when the camera capture widget is used.
-- Camera access generally requires `localhost` or HTTPS.
-- If permission was previously denied, change the browser's site settings to Allow for Camera, then reload.
-- Image upload remains available if camera access is unavailable.
+### 3. Create a virtual environment (optional but recommended)
 
-## Notes about estimates
-The CLIP score is image-text similarity, not a calibrated probability. GrabCut is approximate foreground extraction. The depth-style visualization is generated from mask shape and is not physical depth reconstruction. Mass, density and sugar references are class-level estimates, not lab-verified nutrition values.
+```bash
+python -m venv venv
+```
 
-## Files
-- `app.py` — Streamlit application
-- `requirements.txt` — Python dependencies
+Activate it on Windows:
+
+```bash
+venv\Scripts\activate
+```
+
+### 4. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 5. Run the application
+
+```bash
+streamlit run app.py
+```
+
+Open the local URL displayed in your terminal.
+
+## 📁 Project Structure
+
+```text
+SweetVision3D/
+│
+├── app.py
+├── requirements.txt
+└── README.md
+```
+
+## ⚠️ Important Notes & Limitations
+
+- AI predictions are based on image similarity scores and may not always be accurate.
+- Similar-looking sweets may sometimes be misclassified.
+- 3D visualization is an approximate representation generated through image processing, not a physical 3D scan.
+- Nutrition and portion values are indicative estimates, not laboratory measurements.
+- Camera access requires browser permission and a secure connection (HTTPS).
+- Analysis history is session-based and is not permanently stored in a database.
+
+## 🔮 Future Improvements
+
+- Improve recognition accuracy with a dedicated Indian sweets dataset.
+- Integrate more advanced object detection and segmentation models.
+- Improve 3D reconstruction and depth estimation.
+- Provide more accurate nutritional information.
+- Add user accounts and permanent analysis history.
+- Expand support for regional Indian sweets.
+
+## 👨‍💻 Author
+
+**Anurag Sharma**
+
+B.Tech Computer Science & Engineering
+
+GitHub: [Xharma-Anurag](https://github.com/Xharma-Anurag)
+
+LinkedIn: [Anurag Sharma](https://www.linkedin.com/in/anurag-sharma-284715296)
+
+---
+
+⭐ If you find SweetVision 3D interesting, consider giving this repository a star!
+
+**Built with ❤️ using Python, AI, Computer Vision, and Streamlit.**
